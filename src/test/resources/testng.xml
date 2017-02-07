@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AppiumSuite" verbose="7" >
+    <test name="MainFunctionality" >
+        <classes>
+            <class name="tests.CheckAppVersionTest"/>
+            <class name="tests.StartNewGameTest"/>
+        </classes>
+    </test>
+</suite>
