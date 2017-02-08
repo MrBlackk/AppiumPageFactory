@@ -1,9 +1,9 @@
 package core;
 
+import com.google.common.collect.ImmutableMap;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.*;
+import org.openqa.selenium.remote.http.HttpMethod;
 import org.testng.annotations.*;
 
 import java.io.File;
@@ -22,7 +22,14 @@ public abstract class TestBase {
     @BeforeClass
     protected void setUp() throws MalformedURLException {
         URL remoteAddress = new URL("http://127.0.0.1:4723/wd/hub");
-        webDriver = new RemoteWebDriver(remoteAddress, createAppiumCapabilities());
+
+        ImmutableMap.Builder<String, CommandInfo> builder = ImmutableMap.builder();
+        CommandInfo cmd = new CommandInfo("/session/:sessionId/appium/device/keyevent", HttpMethod.POST);
+        builder.put("keyEvent", cmd);
+        ImmutableMap<String, CommandInfo> mobileCommands = builder.build();
+        HttpCommandExecutor mobileExecutor = new HttpCommandExecutor(mobileCommands, remoteAddress);
+
+        webDriver = new RemoteWebDriver(mobileExecutor, createAppiumCapabilities());
     }
 
     /**

@@ -15,6 +15,8 @@ public class StartPage extends GeneralPage {
     private WebElement appVersion;
     @FindBy(id = "com.mrb.alias:id/start_btnNewGame")
     private WebElement newGameButton;
+    @FindBy(id = "com.mrb.alias:id/start_btnContinue")
+    private WebElement continueButton;
 
     public StartPage(WebDriver webDriver) {
         super(webDriver);
@@ -33,5 +35,21 @@ public class StartPage extends GeneralPage {
     public TeamPage clickNewGameButton(){
         newGameButton.click();
         return new TeamPage(webDriver);
+    }
+
+    /**
+     * Tap New Game button with js
+     */
+    public TeamPage tapNewGameButton(){
+        tapJs(newGameButton);
+        return new TeamPage(webDriver);
+    }
+
+    /**
+     * Click Continue button
+     */
+    public ResultsPage clickContinueButton(){
+        continueButton.click();
+        return new ResultsPage(webDriver);
     }
 }
