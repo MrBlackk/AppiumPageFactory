@@ -29,7 +29,7 @@ public abstract class TestBase {
         ImmutableMap<String, CommandInfo> mobileCommands = builder.build();
         HttpCommandExecutor mobileExecutor = new HttpCommandExecutor(mobileCommands, remoteAddress);
 
-        webDriver = new RemoteWebDriver(mobileExecutor, createAppiumCapabilities());
+        webDriver = new SwipeableDriver(mobileExecutor, createAppiumCapabilities());
     }
 
     /**

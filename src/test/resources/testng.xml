@@ -7,6 +7,7 @@
             <class name="tests.StartNewGameTest"/>
             <class name="tests.CheckBackButtonTest"/>
             <class name="tests.CheckJavaScriptTapTest"/>
+            <class name="tests.TappingOnTeamNameToChangeItTest"/>
         </classes>
     </test>
 </suite>
