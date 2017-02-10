@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Log4Test;
 
 /**
  * Created by chv on 07.02.2017.
@@ -33,6 +34,7 @@ public class StartPage extends GeneralPage {
      * Click New Game button
      */
     public TeamPage clickNewGameButton(){
+        Log4Test.test("Click New Game button");
         newGameButton.click();
         return new TeamPage(webDriver);
     }
@@ -41,6 +43,7 @@ public class StartPage extends GeneralPage {
      * Tap New Game button with js
      */
     public TeamPage tapNewGameButton(){
+        Log4Test.test("Tap js New Game button");
         tapJs(newGameButton);
         return new TeamPage(webDriver);
     }
@@ -49,6 +52,7 @@ public class StartPage extends GeneralPage {
      * Click Continue button
      */
     public ResultsPage clickContinueButton(){
+        Log4Test.test("Click Continue button");
         continueButton.click();
         return new ResultsPage(webDriver);
     }

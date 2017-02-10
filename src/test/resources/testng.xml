@@ -5,6 +5,8 @@
         <classes>
             <class name="tests.CheckAppVersionTest"/>
             <class name="tests.StartNewGameTest"/>
+            <class name="tests.CheckBackButtonTest"/>
+            <class name="tests.CheckJavaScriptTapTest"/>
         </classes>
     </test>
 </suite>

@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Log4Test;
+
 import java.util.List;
 
 /**
@@ -25,6 +27,7 @@ public class TeamPage extends GeneralPage {
      * Click Next button
      */
     public SettingsPage clickNextButton(){
+        Log4Test.test("Click Next button");
         nextButton.click();
         return new SettingsPage(webDriver);
     }

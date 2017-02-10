@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.Command;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
+import utils.Log4Test;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -30,6 +31,7 @@ abstract class GeneralPage {
      * Press Back button on android device
      */
     public void pressBackButton() {
+        Log4Test.test("Press Back button");
         sendKeyEvent(4);
     }
 

@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Log4Test;
+
 import java.util.List;
 
 /**
@@ -25,6 +27,7 @@ public class ResultsPage extends GeneralPage {
      * Click Start button
      */
     public GamePage clickStartButton(){
+        Log4Test.test("Click Start Button");
         startButton.click();
         return new GamePage(webDriver);
     }
