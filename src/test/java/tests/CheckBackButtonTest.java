@@ -1,5 +1,6 @@
 package tests;
 
+import core.Key;
 import core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;

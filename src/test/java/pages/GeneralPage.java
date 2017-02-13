@@ -1,10 +1,10 @@
 package pages;
 
 import com.google.common.collect.ImmutableMap;
+import core.Key;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.Command;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -32,13 +32,22 @@ abstract class GeneralPage {
      */
     public void pressBackButton() {
         Log4Test.test("Press Back button");
-        sendKeyEvent(4);
+        sendKeyEvent(Key.BACK_BUTTON);
+    }
+
+    /**
+     * Press button from Key enum
+     */
+    protected void pressButton(Key key) {
+        Log4Test.test("Press " + key + " button");
+        sendKeyEvent(key);
     }
 
     /**
      * Send key event method, for pressing android keys
      */
-    private void sendKeyEvent(int keycode) {
+    private void sendKeyEvent(Key key) {
+        int  keycode = getKeyCode(key);
         ImmutableMap.Builder<String, Integer> builder = ImmutableMap.builder();
         builder.put("keycode", keycode);
 
@@ -50,6 +59,20 @@ abstract class GeneralPage {
             remoteDriver.getCommandExecutor().execute(command);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Get int keycode
+     */
+    private int getKeyCode(Key key) {
+        switch (key) {
+            case BACK_BUTTON:
+                return 4;
+            case ENTER_BUTTON:
+                return 66;
+            default:
+                throw new IllegalArgumentException("Key code is not supported: " + key);
         }
     }
 
