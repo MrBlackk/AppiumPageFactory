@@ -5,5 +5,16 @@ package core;
  * Key names to send keycode
  */
 public enum Key {
-    BACK_BUTTON, ENTER_BUTTON
+    BACK_BUTTON(4),
+    ENTER_BUTTON(66);
+
+    private int value;
+
+    Key(int value) {
+        this.value = value;
+    }
+
+    public int getValue(){
+        return value;
+    }
 }

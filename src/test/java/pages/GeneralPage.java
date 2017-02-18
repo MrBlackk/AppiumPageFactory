@@ -47,7 +47,7 @@ abstract class GeneralPage {
      * Send key event method, for pressing android keys
      */
     private void sendKeyEvent(Key key) {
-        int  keycode = getKeyCode(key);
+        int  keycode = key.getValue();
         ImmutableMap.Builder<String, Integer> builder = ImmutableMap.builder();
         builder.put("keycode", keycode);
 
@@ -59,20 +59,6 @@ abstract class GeneralPage {
             remoteDriver.getCommandExecutor().execute(command);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
-        }
-    }
-
-    /**
-     * Get int keycode
-     */
-    private int getKeyCode(Key key) {
-        switch (key) {
-            case BACK_BUTTON:
-                return 4;
-            case ENTER_BUTTON:
-                return 66;
-            default:
-                throw new IllegalArgumentException("Key code is not supported: " + key);
         }
     }
 
