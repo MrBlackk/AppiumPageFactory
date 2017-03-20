@@ -15,11 +15,11 @@ public class TappingOnTeamNameToChangeItTest extends TestBase {
 
     @Test(description = "Tap teams test")
     public void tapTeamNameTest() {
-        String beforeTapTeams = new StartPage(webDriver)
+        String beforeTapTeams = new StartPage(appiumDriver)
                 .clickNewGameButton()
                 .getTeamNames();
 
-        String afterTapTeams = new TeamPage(webDriver)
+        String afterTapTeams = new TeamPage(appiumDriver)
                 .tapTeamNo(1)
                 .tapTeamNo(2)
                 .getTeamNames();

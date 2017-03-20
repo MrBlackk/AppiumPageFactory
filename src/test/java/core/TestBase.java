@@ -1,9 +1,9 @@
 package core;
 
-import com.google.common.collect.ImmutableMap;
-import org.openqa.selenium.WebDriver;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.*;
-import org.openqa.selenium.remote.http.HttpMethod;
 import org.testng.annotations.*;
 
 import java.io.File;
@@ -17,19 +17,13 @@ import java.net.URL;
  */
 public abstract class TestBase {
 
-    protected WebDriver webDriver;
+    protected AppiumDriver<MobileElement> appiumDriver;
 
     @BeforeClass
     protected void setUp() throws MalformedURLException {
         URL remoteAddress = new URL("http://127.0.0.1:4723/wd/hub");
 
-        ImmutableMap.Builder<String, CommandInfo> builder = ImmutableMap.builder();
-        CommandInfo cmd = new CommandInfo("/session/:sessionId/appium/device/keyevent", HttpMethod.POST);
-        builder.put("keyEvent", cmd);
-        ImmutableMap<String, CommandInfo> mobileCommands = builder.build();
-        HttpCommandExecutor mobileExecutor = new HttpCommandExecutor(mobileCommands, remoteAddress);
-
-        webDriver = new SwipeableDriver(mobileExecutor, createAppiumCapabilities());
+        appiumDriver = new AndroidDriver<MobileElement>(remoteAddress, createAppiumCapabilities());
     }
 
     /**
@@ -51,6 +45,6 @@ public abstract class TestBase {
 
     @AfterClass
     protected void tearDown(){
-        webDriver.quit();
+        appiumDriver.quit();
     }
 }

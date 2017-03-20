@@ -1,8 +1,8 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import org.openqa.selenium.support.FindBy;
 import utils.Log4Test;
 
@@ -16,12 +16,12 @@ import java.util.List;
 public class TeamPage extends GeneralPage {
 
     @FindBy(id = "com.mrb.alias:id/team_btnNext")
-    private WebElement nextButton;
+    private MobileElement nextButton;
     @FindBy(id = "com.mrb.alias:id/team_adapter_tvName")
-    private List<WebElement> listTeams;
+    private List<MobileElement> listTeams;
 
-    public TeamPage(WebDriver webDriver) {
-        super(webDriver);
+    public TeamPage(AppiumDriver appiumDriver) {
+        super(appiumDriver);
     }
 
     /**
@@ -30,7 +30,7 @@ public class TeamPage extends GeneralPage {
     public SettingsPage clickNextButton(){
         Log4Test.test("Click Next button");
         nextButton.click();
-        return new SettingsPage(webDriver);
+        return new SettingsPage(appiumDriver);
     }
 
     /**
@@ -45,7 +45,7 @@ public class TeamPage extends GeneralPage {
      */
     public TeamPage tapTeamNo(int teamNo) {
         Log4Test.test("Tap team No" + teamNo);
-        new TouchActions(webDriver).singleTap(listTeams.get(teamNo - 1)).perform();
+        new TouchAction(appiumDriver).tap(listTeams.get(teamNo - 1)).perform();
         return this;
     }
 }

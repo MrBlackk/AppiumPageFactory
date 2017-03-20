@@ -1,16 +1,13 @@
 package pages;
 
-import com.google.common.collect.ImmutableMap;
 import core.Key;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.Command;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 import utils.Log4Test;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -20,11 +17,11 @@ import java.util.HashMap;
  */
 abstract class GeneralPage {
 
-    protected WebDriver webDriver;
+    protected AppiumDriver appiumDriver;
 
-    public GeneralPage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
+    public GeneralPage(AppiumDriver appiumDriver){
+        this.appiumDriver = appiumDriver;
+        PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 
     /**
@@ -47,29 +44,16 @@ abstract class GeneralPage {
      * Send key event method, for pressing android keys
      */
     private void sendKeyEvent(Key key) {
-        int  keycode = key.getValue();
-        ImmutableMap.Builder<String, Integer> builder = ImmutableMap.builder();
-        builder.put("keycode", keycode);
-
-        ImmutableMap<String, Integer> parameters = builder.build();
-        RemoteWebDriver remoteDriver = (RemoteWebDriver) webDriver;
-        Command command = new Command(remoteDriver.getSessionId(), "keyEvent", parameters);
-
-        try {
-            remoteDriver.getCommandExecutor().execute(command);
-        } catch (IOException e) {
-            throw new RuntimeException(e.getMessage(), e);
-        }
+        ((AndroidDriver) appiumDriver).pressKeyCode(key.getValue());
     }
 
     /**
      * Tap with JavaScriptExecutor
      */
-    protected void tapJs(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+    protected void tapJs(MobileElement element){
         HashMap<String, Integer> coords = new HashMap<String, Integer>();
         coords.put("x", element.getLocation().getX());
         coords.put("y", element.getLocation().getY());
-        js.executeScript("mobile: tap", coords);
+        appiumDriver.executeScript("mobile: tap", coords);
     }
 }

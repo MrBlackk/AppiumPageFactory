@@ -1,6 +1,5 @@
 package tests;
 
-import core.Key;
 import core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +15,7 @@ public class CheckBackButtonTest extends TestBase {
 
     @Test(description = "Check Team Names after pressing Back button on device")
     public void backButtonTest() {
-        TeamPage teamPage = new StartPage(webDriver)
+        TeamPage teamPage = new StartPage(appiumDriver)
                 .clickNewGameButton();
 
         String expectedText = teamPage.getTeamNames();
@@ -25,7 +24,7 @@ public class CheckBackButtonTest extends TestBase {
                 .clickStartButton()
                 .pressBackButton();
 
-        String actualText = new StartPage(webDriver)
+        String actualText = new StartPage(appiumDriver)
                 .clickContinueButton()
                 .getTeamNames();
 

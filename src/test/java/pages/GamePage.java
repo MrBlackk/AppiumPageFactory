@@ -1,7 +1,7 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
@@ -12,10 +12,10 @@ import org.openqa.selenium.support.FindBy;
 public class GamePage extends GeneralPage {
 
     @FindBy(id = "com.mrb.alias:id/game_tvWord")
-    private WebElement word;
+    private MobileElement word;
 
-    public GamePage(WebDriver webDriver) {
-        super(webDriver);
+    public GamePage(AppiumDriver appiumDriver) {
+        super(appiumDriver);
     }
 
     /**

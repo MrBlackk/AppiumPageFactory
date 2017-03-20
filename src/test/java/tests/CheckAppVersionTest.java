@@ -16,7 +16,7 @@ public class CheckAppVersionTest extends TestBase{
     @Test(description = "Check application version")
     public void checkAppVersion(){
         Log4Test.test("Check application version");
-        String appVersion = new StartPage(webDriver)
+        String appVersion = new StartPage(appiumDriver)
                 .getAppVersion();
 
         Assert.assertEquals(appVersion, TestData.APP_VERSION, "App version is not correct");

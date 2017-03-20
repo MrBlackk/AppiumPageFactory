@@ -14,7 +14,7 @@ public class StartNewGameTest extends TestBase {
 
     @Test(description = "Start New Game")
     public void startNewGame(){
-        boolean result = new StartPage(webDriver)
+        boolean result = new StartPage(appiumDriver)
                 .clickNewGameButton()
                 .clickNextButton()
                 .clickNextButton()

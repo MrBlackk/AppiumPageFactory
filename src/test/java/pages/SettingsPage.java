@@ -1,7 +1,7 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.FindBy;
 import utils.Log4Test;
 
@@ -13,10 +13,10 @@ import utils.Log4Test;
 public class SettingsPage extends GeneralPage{
 
     @FindBy(id = "com.mrb.alias:id/settings_btnNext")
-    private WebElement nextButton;
+    private MobileElement nextButton;
 
-    public SettingsPage(WebDriver webDriver) {
-        super(webDriver);
+    public SettingsPage(AppiumDriver appiumDriver) {
+        super(appiumDriver);
     }
 
     /**
@@ -25,6 +25,6 @@ public class SettingsPage extends GeneralPage{
     public ResultsPage clickNextButton(){
         Log4Test.test("Click Next button");
         nextButton.click();
-        return new ResultsPage(webDriver);
+        return new ResultsPage(appiumDriver);
     }
 }

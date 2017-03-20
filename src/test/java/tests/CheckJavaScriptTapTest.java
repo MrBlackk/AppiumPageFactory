@@ -13,7 +13,7 @@ public class CheckJavaScriptTapTest extends TestBase{
     @Test(description = "JS tap")
     public void jsTapTest(){
         // just for test purpose
-        String teams = new StartPage(webDriver)
+        String teams = new StartPage(appiumDriver)
                 .tapNewGameButton()
                 .getTeamNames();
     }

@@ -1,7 +1,7 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.FindBy;
 import utils.Log4Test;
 
@@ -15,12 +15,12 @@ import java.util.List;
 public class ResultsPage extends GeneralPage {
 
     @FindBy(id = "com.mrb.alias:id/results_btnStart")
-    private WebElement startButton;
+    private MobileElement startButton;
     @FindBy(id = "com.mrb.alias:id/team_adapter_tvName")
-    private List<WebElement> listTeams;
+    private List<MobileElement> listTeams;
 
-    public ResultsPage(WebDriver webDriver) {
-        super(webDriver);
+    public ResultsPage(AppiumDriver appiumDriver) {
+        super(appiumDriver);
     }
 
     /**
@@ -29,7 +29,7 @@ public class ResultsPage extends GeneralPage {
     public GamePage clickStartButton(){
         Log4Test.test("Click Start Button");
         startButton.click();
-        return new GamePage(webDriver);
+        return new GamePage(appiumDriver);
     }
 
     /**
