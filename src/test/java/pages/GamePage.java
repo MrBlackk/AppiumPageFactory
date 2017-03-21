@@ -14,6 +14,12 @@ public class GamePage extends GeneralPage {
     @FindBy(id = "com.mrb.alias:id/game_tvWord")
     private MobileElement word;
 
+    @FindBy(id = "com.mrb.alias:id/game_btnPlus")
+    private MobileElement plusButton;
+
+    @FindBy(id = "com.mrb.alias:id/game_btnMinus")
+    private MobileElement minusButton;
+
     public GamePage(AppiumDriver appiumDriver) {
         super(appiumDriver);
     }
@@ -23,5 +29,19 @@ public class GamePage extends GeneralPage {
      */
     public boolean isWordDisplayed(){
         return word.isDisplayed();
+    }
+
+    /**
+     * Get current word from screen
+     */
+    public String getCurrentWord(){
+        return word.getText();
+    }
+
+    /**
+     * Click Plus Button
+     */
+    public void clickPlusButton(){
+        plusButton.click();
     }
 }
