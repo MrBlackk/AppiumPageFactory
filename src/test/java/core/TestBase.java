@@ -19,7 +19,7 @@ public abstract class TestBase {
 
     protected AppiumDriver<MobileElement> appiumDriver;
 
-    @BeforeClass
+    @BeforeMethod
     protected void setUp() throws MalformedURLException {
         URL remoteAddress = new URL("http://127.0.0.1:4723/wd/hub");
 
@@ -43,7 +43,7 @@ public abstract class TestBase {
         return capabilities;
     }
 
-    @AfterClass
+    @AfterMethod
     protected void tearDown(){
         appiumDriver.quit();
     }

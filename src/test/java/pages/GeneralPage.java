@@ -3,6 +3,7 @@ package pages;
 import core.Key;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
@@ -55,5 +56,20 @@ abstract class GeneralPage {
         coords.put("x", element.getLocation().getX());
         coords.put("y", element.getLocation().getY());
         appiumDriver.executeScript("mobile: tap", coords);
+    }
+
+    /**
+     * Set slider value, 0 - min value
+     */
+    protected void setSliderValue(MobileElement slider, int value){
+        int startX = slider.getLocation().getX();
+        int yAxis = slider.getLocation().getY();
+
+        int moveToXDirection = value + startX;
+        new TouchAction(appiumDriver)
+                .longPress(startX, yAxis)
+                .moveTo(moveToXDirection, yAxis)
+                .release()
+                .perform();
     }
 }
