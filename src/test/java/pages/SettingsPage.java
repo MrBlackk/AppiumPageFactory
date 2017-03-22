@@ -32,11 +32,11 @@ public class SettingsPage extends GeneralPage{
     }
 
     /**
-     * Click Next button
+     * Tap Next button
      */
-    public ResultsPage clickNextButton(){
-        Log4Test.test("Click Next button");
-        nextButton.click();
+    public ResultsPage tapNextButton(){
+        Log4Test.test("Tap Next button");
+        tap(nextButton);
         return new ResultsPage(appiumDriver);
     }
 

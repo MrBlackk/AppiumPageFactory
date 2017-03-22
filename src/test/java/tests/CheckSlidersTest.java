@@ -18,8 +18,8 @@ public class CheckSlidersTest extends TestBase {
         String expectedMinSliderValue = "10";
 
         SettingsPage settingsPage = new StartPage(appiumDriver)
-                .clickNewGameButton()
-                .clickNextButton()
+                .tapNewGameButton()
+                .tapNextButton()
                 .setMinValueForTimeSlider()
                 .setMinValueForPointsSlider();
 
@@ -35,8 +35,8 @@ public class CheckSlidersTest extends TestBase {
         String expectedMinSliderValue = "40";
 
         SettingsPage settingsPage = new StartPage(appiumDriver)
-                .clickNewGameButton()
-                .clickNextButton();
+                .tapNewGameButton()
+                .tapNextButton();
 
         String actualTimeValue = settingsPage.getTimeSliderValue();
         String actualPointsValue = settingsPage.getPointsSliderValue();

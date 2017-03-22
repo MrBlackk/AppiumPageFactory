@@ -14,7 +14,7 @@ public class CheckJavaScriptTapTest extends TestBase{
     public void jsTapTest(){
         // just for test purpose
         String teams = new StartPage(appiumDriver)
-                .tapNewGameButton()
+                .tapJsNewGameButton()
                 .getTeamNames();
     }
 }

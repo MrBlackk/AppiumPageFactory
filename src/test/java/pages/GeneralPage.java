@@ -72,4 +72,12 @@ abstract class GeneralPage {
                 .release()
                 .perform();
     }
+
+    /**
+     * Tap an element
+     * @param element - element to tap
+     */
+    protected void tap(MobileElement element){
+        new TouchAction(appiumDriver).tap(element).perform();
+    }
 }

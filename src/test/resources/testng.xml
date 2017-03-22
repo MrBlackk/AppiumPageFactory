@@ -9,6 +9,7 @@
             <class name="tests.CheckJavaScriptTapTest"/>
             <class name="tests.TappingOnTeamNameToChangeItTest"/>
             <class name="tests.CheckSlidersTest"/>
+            <class name="tests.CheckListOfWordsTest"/>
         </classes>
     </test>
 </suite>

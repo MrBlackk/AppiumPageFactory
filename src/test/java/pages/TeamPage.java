@@ -2,7 +2,6 @@ package pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import org.openqa.selenium.support.FindBy;
 import utils.Log4Test;
 
@@ -25,11 +24,11 @@ public class TeamPage extends GeneralPage {
     }
 
     /**
-     * Click Next button
+     * Tap Next button
      */
-    public SettingsPage clickNextButton(){
-        Log4Test.test("Click Next button");
-        nextButton.click();
+    public SettingsPage tapNextButton(){
+        Log4Test.test("Tap Next button");
+        tap(nextButton);
         return new SettingsPage(appiumDriver);
     }
 
@@ -45,7 +44,7 @@ public class TeamPage extends GeneralPage {
      */
     public TeamPage tapTeamNo(int teamNo) {
         Log4Test.test("Tap team No" + teamNo);
-        new TouchAction(appiumDriver).tap(listTeams.get(teamNo - 1)).perform();
+        tap(listTeams.get(teamNo - 1));
         return this;
     }
 }

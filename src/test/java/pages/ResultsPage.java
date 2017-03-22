@@ -24,11 +24,11 @@ public class ResultsPage extends GeneralPage {
     }
 
     /**
-     * Click Start button
+     * Tap Start button
      */
-    public GamePage clickStartButton(){
-        Log4Test.test("Click Start Button");
-        startButton.click();
+    public GamePage tapStartButton(){
+        Log4Test.test("Tap Start Button");
+        tap(startButton);
         return new GamePage(appiumDriver);
     }
 

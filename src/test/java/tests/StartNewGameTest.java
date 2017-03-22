@@ -15,10 +15,10 @@ public class StartNewGameTest extends TestBase {
     @Test(description = "Start New Game")
     public void startNewGame(){
         boolean result = new StartPage(appiumDriver)
-                .clickNewGameButton()
-                .clickNextButton()
-                .clickNextButton()
-                .clickStartButton()
+                .tapNewGameButton()
+                .tapNextButton()
+                .tapNextButton()
+                .tapStartButton()
                 .isWordDisplayed();
 
         Assert.assertTrue(result, "Game was not started, word is not shown");

@@ -31,29 +31,29 @@ public class StartPage extends GeneralPage {
     }
 
     /**
-     * Click New Game button
+     * Tap New Game button
      */
-    public TeamPage clickNewGameButton(){
-        Log4Test.test("Click New Game button");
-        newGameButton.click();
+    public TeamPage tapNewGameButton(){
+        Log4Test.test("Tap New Game button");
+        tap(newGameButton);
         return new TeamPage(appiumDriver);
     }
 
     /**
      * Tap New Game button with js
      */
-    public TeamPage tapNewGameButton(){
+    public TeamPage tapJsNewGameButton(){
         Log4Test.test("Tap js New Game button");
         tapJs(newGameButton);
         return new TeamPage(appiumDriver);
     }
 
     /**
-     * Click Continue button
+     * Tap Continue button
      */
-    public ResultsPage clickContinueButton(){
-        Log4Test.test("Click Continue button");
-        continueButton.click();
+    public ResultsPage tapContinueButton(){
+        Log4Test.test("Tap Continue button");
+        tap(continueButton);
         return new ResultsPage(appiumDriver);
     }
 }

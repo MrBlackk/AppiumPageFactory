@@ -16,16 +16,16 @@ public class CheckBackButtonTest extends TestBase {
     @Test(description = "Check Team Names after pressing Back button on device")
     public void backButtonTest() {
         TeamPage teamPage = new StartPage(appiumDriver)
-                .clickNewGameButton();
+                .tapNewGameButton();
 
         String expectedText = teamPage.getTeamNames();
-        teamPage.clickNextButton()
-                .clickNextButton()
-                .clickStartButton()
+        teamPage.tapNextButton()
+                .tapNextButton()
+                .tapStartButton()
                 .pressBackButton();
 
         String actualText = new StartPage(appiumDriver)
-                .clickContinueButton()
+                .tapContinueButton()
                 .getTeamNames();
 
         Assert.assertEquals(actualText, expectedText, "Team names are different");

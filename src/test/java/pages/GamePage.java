@@ -3,6 +3,7 @@ package pages;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Log4Test;
 
 /**
  * Created by chv on 07.02.2017.
@@ -39,9 +40,10 @@ public class GamePage extends GeneralPage {
     }
 
     /**
-     * Click Plus Button
+     * Tap Plus Button
      */
-    public void clickPlusButton(){
-        plusButton.click();
+    public void tapPlusButton(){
+        Log4Test.test("Tap Plus button");
+        tap(plusButton);
     }
 }
